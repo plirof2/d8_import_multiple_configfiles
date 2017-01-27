@@ -14,7 +14,8 @@ Drupal 8 Module to load multiple .yml config files (based on config_devel8.x-1.x
 
 ## Import using this module
 - Install and activate this module
-- Put your .yml files in the folder /module/**this_module_name>**/import_these
+- Put your .yml files in the folder (drupal8-REAL path)/module/**this_module_name>**/import_these
+- Navigate to eg http://localhost/drupal8/admin/config/development/**config_devel**  (issue config_devel - should change name in the future)
 - Enter the filenames you want to import in the "import" text area
 - "tick" the checkbox under the text area
 - Refresh drupal 8 page
