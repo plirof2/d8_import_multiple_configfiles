@@ -67,16 +67,31 @@ class ConfigDevelAutoImportSubscriber extends ConfigDevelSubscriberBase implemen
    * @return bool
    */
   public function importOne($filename, $original_hash = '', $contents = '') {
-    //drupal_set_message('Hello   public function importOne 01 ');  //debug_jon
-    //drupal_set_message('Hello   public function importOne 01 FILE GET CONTENTS TEST :'.file_get_contents("views.view.coursefields.yml"));  //debug_jon
     //drupal_set_message('Hello   public function importOne 01 FILE GET CONTENTS TEST config_devel/import_these:'.file_get_contents("modules/config_devel/import_these/views.view.coursefields.yml"));  //debug_jon
     $hash = '';
-    $import_these_folder_location="modules/config_devel/import_these/";
-    $rename_after_usage=false; // SHould I rename the config .yml I used AFTER I import it - since this module runs in EVERY refresh
+        
+    $this_module_name = 'config_devel'; // !!!!!!!!!!!!!!!!! MUST FIND A WAY TO DO THIS DYNAMICALLY !!!!!!!
+    $this_module_path=drupal_get_path('module', $this_module_name);
+    // print '$this_module_path='.$this_module_path;
+    $import_these_folder_location=$this_module_path."/import_these/";//d8_import_multiple_configfiles
+        
+// ######################## DEBUG SPOT################################
+    //$this_module_name2 = basename(__DIRNAME__, '.php');
+    //$this_module_name2 = \Drupal::service('file_system')->dirname( $this_module_path);
+   //$this_module_name2 = \ModuleHandler::getName(); drupal_get_current_module_name();
+    //$this_module_name2=drupal_get_current_module_name();
+    //print '$this_module_name2='.$this_module_name2;
+// ######################## DEBUG SPOT################################
+
+
+    //$current_path = \Drupal::service('path.current')->getPath();  // returns drupal URL path of this module (eg this return $current_path=/admin/config/development/config_devel)
+    //drupal_set_message('$current_path=' . $current_path )  ;//debug jon
+
+    $rename_after_usage=false; // REMOVE THIS  SHould I rename the config .yml I used AFTER I import it - since this module runs in EVERY refresh
     $clear_filelist_after_usage=true; // SHould I rename the config .yml I used AFTER I import it - since this module runs in EVERY refresh
     //drupal_set_message('importOne 02 BEFORE $contents='.$contents);  //debug_jon
     if (!$contents && (!$contents = @file_get_contents($import_these_folder_location.$filename))) {
-        drupal_set_message("importOne no content found (maybe file does not exist OR is in wrong PATH)");  //debug_jon
+        drupal_set_message("importOne no content found (maybe file does not exist OR is in wrong PATH) debug info : thismodulename=".$this_module_name);  //debug_jon
       return $hash; //jon commented for debug
     }
     //drupal_set_message('importOne 02 AFTER $contents='.$contents);  //debug_jon
@@ -112,7 +127,7 @@ class ConfigDevelAutoImportSubscriber extends ConfigDevelSubscriberBase implemen
       else {
         $this->configFactory->getEditable($config_name)->setData($data)->save();
       }
-      if ($rename_after_usage) { $this->renameFile($filename,$import_these_folder_location);}
+      //if ($rename_after_usage) { $this->renameFile($filename,$import_these_folder_location);} //Not Working (NEEDS ABSOLUTE PATH)
     }
     return $hash;
   }
@@ -125,7 +140,8 @@ class ConfigDevelAutoImportSubscriber extends ConfigDevelSubscriberBase implemen
   public function renameFile($filename,$import_these_folder_location='') {
     $datesuffix=".IMPORTED-".date('Y-m-d_Hi');
     drupal_set_message('renameFile oldfile='.$filename.' new filename will be ='.$filename.$datesuffix . " PATH= ".drupal_get_path('module', "config_devel"));  //debug_jon
-    //rename($import_these_folder_location.$filename, $import_these_folder_location.$filename.$datesuffix);
+    // NOTE NEEDS ABSOLUTE PATH :
+    rename($import_these_folder_location.$filename, $import_these_folder_location.$filename.$datesuffix);  // NOTE NEEDS ABSOLUTE PATH
   //  $file = \Drupal\file\Entity\File::load($fid);
   //  file_move(FileInterface $source, 'path/to/destination');
   }
