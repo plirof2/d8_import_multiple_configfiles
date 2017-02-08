@@ -2,10 +2,10 @@
 
 /**
  * @file
- * Contains \Drupal\config_devel\EventSubscriber\ConfigDevelAutoImportSubscriber.
+ * Contains \Drupal\config_devel_import_multiple\EventSubscriber\ConfigDevelAutoImportSubscriber.
  */
 
-namespace Drupal\config_devel\EventSubscriber;
+namespace Drupal\config_devel_import_multiple\EventSubscriber;
 
 use Drupal\Component\Utility\Crypt;
 use Drupal\Core\Config\InstallStorage;
@@ -29,7 +29,7 @@ class ConfigDevelAutoImportSubscriber extends ConfigDevelSubscriberBase implemen
     }
     if(($config->get('check_to_import_once')==1)) {
     // $config->set('check_to_import_once',null); // This SETS the checkbox value NOT the saved one debug jon
-    //$this->getSettings("config_devel.settings")->set('check_to_import_once',false);
+    //$this->getSettings("config_devel_import_multiple.settings")->set('check_to_import_once',false);
    }
     //  drupal_set_message('<pre>aaa '. print_r($config->get('auto_import')) .'</pre>');  //debug _jon
     $changed = FALSE;
@@ -67,10 +67,10 @@ class ConfigDevelAutoImportSubscriber extends ConfigDevelSubscriberBase implemen
    * @return bool
    */
   public function importOne($filename, $original_hash = '', $contents = '') {
-    //drupal_set_message('Hello   public function importOne 01 FILE GET CONTENTS TEST config_devel/import_these:'.file_get_contents("modules/config_devel/import_these/views.view.coursefields.yml"));  //debug_jon
+    //drupal_set_message('Hello   public function importOne 01 FILE GET CONTENTS TEST config_devel_import_multiple/import_these:'.file_get_contents("modules/config_devel_import_multiple/import_these/views.view.coursefields.yml"));  //debug_jon
     $hash = '';
         
-    $this_module_name = 'config_devel'; // !!!!!!!!!!!!!!!!! MUST FIND A WAY TO DO THIS DYNAMICALLY !!!!!!!
+    $this_module_name = 'config_devel_import_multiple'; // !!!!!!!!!!!!!!!!! MUST FIND A WAY TO DO THIS DYNAMICALLY !!!!!!!
     $this_module_path=drupal_get_path('module', $this_module_name);
     // print '$this_module_path='.$this_module_path;
     $import_these_folder_location=$this_module_path."/import_these/";//d8_import_multiple_configfiles
@@ -84,7 +84,7 @@ class ConfigDevelAutoImportSubscriber extends ConfigDevelSubscriberBase implemen
 // ######################## DEBUG SPOT################################
 
 
-    //$current_path = \Drupal::service('path.current')->getPath();  // returns drupal URL path of this module (eg this return $current_path=/admin/config/development/config_devel)
+    //$current_path = \Drupal::service('path.current')->getPath();  // returns drupal URL path of this module (eg this return $current_path=/admin/config/development/config_devel_import_multiple)
     //drupal_set_message('$current_path=' . $current_path )  ;//debug jon
 
     $rename_after_usage=false; // REMOVE THIS  SHould I rename the config .yml I used AFTER I import it - since this module runs in EVERY refresh
@@ -139,7 +139,7 @@ class ConfigDevelAutoImportSubscriber extends ConfigDevelSubscriberBase implemen
    */
   public function renameFile($filename,$import_these_folder_location='') {
     $datesuffix=".IMPORTED-".date('Y-m-d_Hi');
-    drupal_set_message('renameFile oldfile='.$filename.' new filename will be ='.$filename.$datesuffix . " PATH= ".drupal_get_path('module', "config_devel"));  //debug_jon
+    drupal_set_message('renameFile oldfile='.$filename.' new filename will be ='.$filename.$datesuffix . " PATH= ".drupal_get_path('module', "config_devel_import_multiple"));  //debug_jon
     // NOTE NEEDS ABSOLUTE PATH :
     rename($import_these_folder_location.$filename, $import_these_folder_location.$filename.$datesuffix);  // NOTE NEEDS ABSOLUTE PATH
   //  $file = \Drupal\file\Entity\File::load($fid);

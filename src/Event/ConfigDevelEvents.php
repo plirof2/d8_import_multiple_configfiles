@@ -2,15 +2,15 @@
 
 /**
  * @file
- * Contains \Drupal\config_devel\Event\ConfigDevelEvents.
+ * Contains \Drupal\config_devel_import_multiple\Event\ConfigDevelEvents.
  */
 
-namespace Drupal\config_devel\Event;
+namespace Drupal\config_devel_import_multiple\Event;
 
 /**
  * Defines events for config devel.
  *
- * @see \Drupal\config_devel\Event\ConfigDevelSaveEvent
+ * @see \Drupal\config_devel_import_multiple\Event\ConfigDevelSaveEvent
  */
 final class ConfigDevelEvents {
 
@@ -22,10 +22,10 @@ final class ConfigDevelEvents {
    *
    * @Event
    *
-   * @see \Drupal\config_devel\Event\ConfigDevelSaveEvent
+   * @see \Drupal\config_devel_import_multiple\Event\ConfigDevelSaveEvent
    *
    * @var string
    */
-  const SAVE = 'config_devel.save';
+  const SAVE = 'config_devel_import_multiple.save';
 
 }

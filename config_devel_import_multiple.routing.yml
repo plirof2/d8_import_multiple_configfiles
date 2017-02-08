@@ -1,0 +1,7 @@
+config_devel_import_multiple.settings:
+  path: '/admin/config/development/config_devel_import_multiple'
+  defaults:
+    _form: 'Drupal\config_devel_import_multiple\Form\ConfigDevelSettingsForm'
+    _title: 'Config Devel Import Multiple'
+  requirements:
+    _permission: 'import configuration'

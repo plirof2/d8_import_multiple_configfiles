@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\Tests\config_devel\Unit;
+namespace Drupal\Tests\config_devel_import_multiple\Unit;
 
 use org\bovigo\vfs\vfsStream;
 use Drupal\Tests\UnitTestCase;

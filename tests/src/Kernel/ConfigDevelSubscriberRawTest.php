@@ -1,18 +1,18 @@
 <?php
 
-namespace Drupal\Tests\config_devel\Kernel;
+namespace Drupal\Tests\config_devel_import_multiple\Kernel;
 
 /**
  * Tests the automated importer for raw config objects.
  *
- * @group config_devel
+ * @group config_devel_import_multiple
  */
 class ConfigDevelSubscriberRawTest extends ConfigDevelSubscriberTestBase {
 
   /**
    * {@inheritdoc}
    */
-  const CONFIGNAME = 'config_devel.test';
+  const CONFIGNAME = 'config_devel_import_multiple.test';
 
   /**
    * {@inheritdoc}

@@ -1,0 +1,5 @@
+config_devel_import_multiple.settings:
+  title: Config devel Import Multiple
+  description: 'Specify which configuration objects to automatically import/export.'
+  route_name: config_devel_import_multiple.settings
+  parent: system.admin_config_development

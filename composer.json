@@ -1,5 +1,5 @@
 {
-  "name": "drupal/config_devel",
+  "name": "drupal/config_devel_import_multiple",
   "description": "Helps developers work with configuration.",
   "type": "drupal-module",
   "license": "GPL-2.0+",

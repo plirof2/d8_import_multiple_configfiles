@@ -1,0 +1,11 @@
+services:
+  config_devel_import_multiple.writeback_subscriber:
+    class: Drupal\config_devel_import_multiple\EventSubscriber\ConfigDevelAutoExportSubscriber
+    arguments: ['@config.factory', '@config.manager', '@event_dispatcher']
+    tags:
+      - { name: event_subscriber }
+  config_devel_import_multiple.auto_import_subscriber:
+    class: Drupal\config_devel_import_multiple\EventSubscriber\ConfigDevelAutoImportSubscriber
+    arguments: ['@config.factory', '@config.manager']
+    tags:
+      - { name: event_subscriber }

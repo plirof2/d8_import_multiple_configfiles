@@ -2,13 +2,13 @@
 
 /**
  * @file
- * Contains Drupal\config_devel\EventSubscriber\ConfigDevelAutoExportSubscriber.
+ * Contains Drupal\config_devel_import_multiple\EventSubscriber\ConfigDevelAutoExportSubscriber.
  */
 
-namespace Drupal\config_devel\EventSubscriber;
+namespace Drupal\config_devel_import_multiple\EventSubscriber;
 
-use Drupal\config_devel\Event\ConfigDevelEvents;
-use Drupal\config_devel\Event\ConfigDevelSaveEvent;
+use Drupal\config_devel_import_multiple\Event\ConfigDevelEvents;
+use Drupal\config_devel_import_multiple\Event\ConfigDevelSaveEvent;
 use Drupal\Core\Config\Config;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Config\ConfigManagerInterface;

@@ -2,10 +2,10 @@
 
 /**
  * @file
- * Contains \Drupal\config_devel\Event\ConfigDevelSaveEvent
+ * Contains \Drupal\config_devel_import_multiple\Event\ConfigDevelSaveEvent
  */
 
-namespace Drupal\config_devel\Event;
+namespace Drupal\config_devel_import_multiple\Event;
 
 use Symfony\Component\EventDispatcher\Event;
 

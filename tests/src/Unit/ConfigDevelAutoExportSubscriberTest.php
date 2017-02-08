@@ -1,15 +1,15 @@
 <?php
 
-namespace Drupal\Tests\config_devel\Unit;
+namespace Drupal\Tests\config_devel_import_multiple\Unit;
 
 use org\bovigo\vfs\vfsStream;
 use Drupal\Component\Serialization\Yaml;
 
-use Drupal\config_devel\EventSubscriber\ConfigDevelAutoExportSubscriber;
+use Drupal\config_devel_import_multiple\EventSubscriber\ConfigDevelAutoExportSubscriber;
 
 /**
- * @coversDefaultClass \Drupal\config_devel\EventSubscriber\ConfigDevelAutoExportSubscriber
- * @group config_devel
+ * @coversDefaultClass \Drupal\config_devel_import_multiple\EventSubscriber\ConfigDevelAutoExportSubscriber
+ * @group config_devel_import_multiple
  */
 class ConfigDevelAutoExportSubscriberTest extends ConfigDevelTestBase {
 

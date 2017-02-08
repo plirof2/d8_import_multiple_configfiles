@@ -1,11 +1,11 @@
 <?php
 
-namespace Drupal\Tests\config_devel\Kernel;
+namespace Drupal\Tests\config_devel_import_multiple\Kernel;
 
 /**
  * Tests the automated importer for config entities.
  *
- * @group config_devel
+ * @group config_devel_import_multiple
  */
 class ConfigDevelSubscriberEntityTest extends ConfigDevelSubscriberTestBase {
 

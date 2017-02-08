@@ -2,10 +2,10 @@
 
 /**
  * @file
- * Contains \Drupal\config_devel\Form\ConfigDevelSettingsForm.
+ * Contains \Drupal\config_devel_import_multiple\Form\ConfigDevelSettingsForm.
  */
 
-namespace Drupal\config_devel\Form;
+namespace Drupal\config_devel_import_multiple\Form;
 
 use Drupal\Core\Config\FileStorage;
 use Drupal\Core\Form\ConfigFormBase;
@@ -19,7 +19,7 @@ class ConfigDevelSettingsForm extends ConfigFormBase {
   /**
    * Name of the config being edited.
    */
-  const CONFIGNAME = 'config_devel.settings';
+  const CONFIGNAME = 'config_devel_import_multiple.settings';
 
   /**
    * @var array
@@ -45,7 +45,7 @@ class ConfigDevelSettingsForm extends ConfigFormBase {
       '#type' => 'checkbox',
       '#title' => $this->t('Import the files above once'),
       //'#default_value' => FALSE,
-      '#default_value' => $this->config("config_devel.settings")->get('check_to_import_once'),
+      '#default_value' => $this->config("config_devel_import_multiple.settings")->get('check_to_import_once'),
       '#description' => $this->t('This checkbox will be disabled when the importing is done.This is to avoid importing always the same .yml files'),
     );
 
@@ -99,14 +99,14 @@ class ConfigDevelSettingsForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function getFormId() {
-    return 'config_devel_settings';
+    return 'config_devel_import_multiple_settings';
   }
 
   /**
    * {@inheritdoc}
    */
   protected function getEditableConfigNames() {
-    return ['config_devel.settings'];
+    return ['config_devel_import_multiple.settings'];
   }
 
 }

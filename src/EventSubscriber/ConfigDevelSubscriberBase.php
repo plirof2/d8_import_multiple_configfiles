@@ -2,10 +2,10 @@
 
 /**
  * @file
- * Contains \Drupal\config_devel\EventSubscriber\ConfigDevelSubscriberBase.
+ * Contains \Drupal\config_devel_import_multiple\EventSubscriber\ConfigDevelSubscriberBase.
  */
 
-namespace Drupal\config_devel\EventSubscriber;
+namespace Drupal\config_devel_import_multiple\EventSubscriber;
 
 
 use Drupal\Core\Config\ConfigFactoryInterface;
@@ -65,7 +65,7 @@ class ConfigDevelSubscriberBase {
    * @return \Drupal\Core\Config\Config
    */
   protected function getSettings() {
-    return $this->configFactory->getEditable('config_devel.settings');
+    return $this->configFactory->getEditable('config_devel_import_multiple.settings');
   }
 
 }
